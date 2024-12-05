@@ -1,0 +1,40 @@
+{
+    "shops": [
+      {
+        "_id": "6748d8a32831eafd3fad9fb0",
+        "name": "Coffee Hub du soleil",
+        "location": {
+          "address": {
+            "street_number": 12,
+            "street": "Rue Garibaldi",
+            "city": "Biarritz",
+            "zipcode": "64200"
+          },
+          "geo": {
+            "coordinates": [
+              45.757879,
+              4.852517
+            ]
+          }
+        }
+      },
+      {
+        "_id": "6878d8a32831eafd3fad9fb0",
+        "name": "Coffee Hub des Montagnes",
+        "location": {
+          "address": {
+            "street_number": 19,
+            "street": "Rue des Huskies",
+            "city": "Chamonix-Mont-Blanc",
+            "zipcode": "74400"
+          },
+          "geo": {
+            "coordinates": [
+              45.757879,
+              4.852517
+            ]
+          }
+        }
+      }
+    ]
+}
