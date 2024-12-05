@@ -19,6 +19,7 @@ export class AddshopformComponent {
 
   creation_form: FormGroup = new FormGroup({
     name: new FormControl<string>(''),
+    slogan: new FormControl<string>(''),
     city: new FormControl<string>(''),
     zipcode: new FormControl<string>(''),
     street: new FormControl<string>(''),
@@ -41,6 +42,7 @@ export class AddshopformComponent {
   private transformFormValues(formData: any): any {
     return {
       name: formData.name,
+      slogan: formData.slogan,
       location: {
         address: {
           street_number: formData.street_number ? formData.street_number : null,

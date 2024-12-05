@@ -51,6 +51,19 @@
           "zipcode": "63100"
         }
       }
+    },
+    {
+      "id": "24fb",
+      "name": "Abc",
+      "slogan": "Slogan",
+      "location": {
+        "address": {
+          "street_number": 12,
+          "street": "rue",
+          "city": "Strasbourg",
+          "zipcode": "67000"
+        }
+      }
     }
   ]
 }
