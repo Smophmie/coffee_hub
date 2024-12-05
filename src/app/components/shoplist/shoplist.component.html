@@ -1,5 +1,9 @@
 <div class="m-12">
     <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-4">Boutiques</h1>
+    <div class="pt-4 mb-10">
+        <a [routerLink]="['/addshop']" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-3 rounded-lg active:scale-95 transition-transform transform">Créer une boutique</a>
+    </div>
+
     <ul class="space-y-2" *ngIf="shops">
     <li *ngFor="let shop of shops">
         <p>{{ shop.name }}</p>
