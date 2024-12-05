@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ShopService } from '../../services/shop/shop.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AddshopformComponent {
 
   constructor(
     private shopService: ShopService,
+    private router: Router,
   ){};
 
   creation_form: FormGroup = new FormGroup({
@@ -28,6 +30,7 @@ export class AddshopformComponent {
     this.shopService.createShop(formData).subscribe({
       next: (response) => {
         console.log('Shop created successfully:', response);
+        this.router.navigate(['/shoplist']);
       },
       error: (error) => {
         console.error('Error creating shop:', error);

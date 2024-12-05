@@ -1,14 +1,15 @@
 import { Component, OnInit, Pipe } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ShopService } from '../../services/shop/shop.service';
 import { Shop } from '../../models/shop';
+import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-updateshopform',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './updateshopform.component.html',
   styleUrl: './updateshopform.component.css'
 })
@@ -16,10 +17,11 @@ export class UpdateshopformComponent implements OnInit {
   constructor(
     private shopService: ShopService,
     private route: ActivatedRoute,
+    private router: Router
   ){};
 
   id: string = "";
-  shop?: Shop;
+  shop: Shop | null = null;
 
   ngOnInit(){
     this.route.paramMap.pipe(
@@ -30,6 +32,13 @@ export class UpdateshopformComponent implements OnInit {
     ).subscribe({
       next: (data: any) => {
         this.shop = data;
+        this.update_form.patchValue({
+          name: this.shop?.name,
+          city: this.shop?.location.address.city,
+          zipcode: this.shop?.location.address.zipcode,
+          street: this.shop?.location.address.street,
+          street_number: this.shop?.location.address.street_number,
+        });
       },
       error: (error) => {
         console.log(error);
@@ -50,6 +59,7 @@ export class UpdateshopformComponent implements OnInit {
     this.shopService.updateShop(formData, this.id).subscribe({
       next: (response) => {
         console.log('Shop updated successfully:', response);
+        this.router.navigate(['/shoplist']);
       },
       error: (error) => {
         console.error('Error updating shop:', error);

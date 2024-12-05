@@ -73,16 +73,28 @@
       }
     },
     {
-      "name": "shop 1 modifié",
+      "name": "Shop 1 modifié",
       "location": {
         "address": {
           "street_number": 112,
           "street": "LE FANGHEAT",
-          "city": "EGLISE NEUVE PRES BILLOM",
+          "city": "EGLISENEUVE PRES BILLOM",
           "zipcode": "63160"
         }
       },
       "id": "7bbf"
+    },
+    {
+      "id": "0186",
+      "name": "Always more coffee",
+      "location": {
+        "address": {
+          "street_number": 21,
+          "street": "Rue du Clos de Four",
+          "city": "Clermont-Ferrand",
+          "zipcode": "63100"
+        }
+      }
     }
   ]
 }
