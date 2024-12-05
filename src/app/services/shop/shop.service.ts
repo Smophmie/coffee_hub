@@ -24,6 +24,7 @@ export class ShopService {
   }
 
   createShop(shop: Shop){
+    console.log("createshop lancée");
     console.log(shop);
     return this.httpClient.post(this.apiUrl, shop);
   }

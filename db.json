@@ -71,6 +71,18 @@
           "zipcode": "64200"
         }
       }
+    },
+    {
+      "id": "7bbf",
+      "name": "shop 1",
+      "location": {
+        "address": {
+          "street_number": 12,
+          "street": "rue",
+          "city": "Tou",
+          "zipcode": "32000"
+        }
+      }
     }
   ]
 }

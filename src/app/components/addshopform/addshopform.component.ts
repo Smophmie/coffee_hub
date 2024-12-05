@@ -18,7 +18,7 @@ export class AddshopformComponent {
   creation_form: FormGroup = new FormGroup({
     name: new FormControl<string>(''),
     city: new FormControl<string>(''),
-    zipcode: new FormControl<number | null>(null),
+    zipcode: new FormControl<string>(''),
     street: new FormControl<string>(''),
     street_number: new FormControl<number | null>(null),
   });
@@ -27,7 +27,14 @@ export class AddshopformComponent {
     console.log(this.creation_form.value);
     const formData = this.transformFormValues(this.creation_form.value);
     console.log(formData);
-    this.shopService.createShop(formData);
+    this.shopService.createShop(formData).subscribe({
+      next: (response) => {
+        console.log('Shop created successfully:', response);
+      },
+      error: (error) => {
+        console.error('Error creating shop:', error);
+      }
+    });;
   }
 
   private transformFormValues(formData: any): any {
