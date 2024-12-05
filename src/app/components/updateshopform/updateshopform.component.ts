@@ -64,7 +64,7 @@ export class UpdateshopformComponent implements OnInit {
       error: (error) => {
         console.error('Error updating shop:', error);
       }
-    });;
+    });
   }
 
   private transformFormValues(formData: any): any {

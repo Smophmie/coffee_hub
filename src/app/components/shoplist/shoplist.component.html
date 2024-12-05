@@ -8,10 +8,12 @@
     <li *ngFor="let shop of shops">
         <p>{{ shop.name }}</p>
         <p>{{ shop.location.address.street_number}}, {{ shop.location.address.street}}, {{ shop.location.address.city}}</p>
-        <div class="mt-3">
-            <a [routerLink]="['/shop', shop?.id]" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-2 rounded-lg w-60 transition-transform transform">Modifier</a>
+        <div class="mt-3 space-x-4 flex">
+            <a [routerLink]="['/shop', shop?.id]" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-2 rounded-lg w-40 transition-transform transform">Modifier</a>
+            <button type="button" (click)="onDelete(shop.id)" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-2 rounded-lg w-40 transition-transform transform">Supprimer</button>
         </div>
-        
+        <div class="mt-3">
+        </div>
     </li>
     </ul>
 </div>

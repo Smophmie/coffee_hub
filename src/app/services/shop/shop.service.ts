@@ -30,4 +30,8 @@ export class ShopService {
   updateShop(shop: Shop, id : string){
     return this.httpClient.put(this.apiUrl+"/"+id, shop);
   }
+
+  deleteShop(id : string){
+    return this.httpClient.delete(this.apiUrl+"/"+id);
+  }
 }

@@ -20,10 +20,26 @@ export class ShoplistComponent implements OnInit {
   shops?: Shop[];
 
   ngOnInit(){
+    this.loadShops();
+  }
+
+  loadShops(){
     this.shopService.getShops()
     .subscribe((res:any)=>{
         this.shops = res;
         console.log(this.shops);
+    });
+  }
+
+  onDelete(id:string){
+    this.shopService.deleteShop(id).subscribe({
+      next: (response) => {
+        console.log('Shop deleted successfully:', response);
+        this.loadShops();
+      },
+      error: (error) => {
+        console.error('Error updating shop:', error);
+      }
     });
   }
 }
