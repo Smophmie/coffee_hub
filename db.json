@@ -11,6 +11,7 @@
             "zipcode": "64200"
           },
           "geo": {
+            "type": "point",
             "coordinates": [
               45.757879,
               4.852517
@@ -29,6 +30,7 @@
             "zipcode": "74400"
           },
           "geo": {
+            "type": "point",
             "coordinates": [
               45.757879,
               4.852517

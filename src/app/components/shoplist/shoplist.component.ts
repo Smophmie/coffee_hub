@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ShopService } from '../../services/shop/shop.service';
 import { NgForOf, NgIf } from '@angular/common';
+import { Shop } from '../../models/shop';
 
 @Component({
   selector: 'app-shoplist',
@@ -15,7 +16,7 @@ export class ShoplistComponent implements OnInit {
     private shopService: ShopService,
   ){};
 
-  shops?: [];
+  shops?: Shop[];
 
   ngOnInit(){
     this.shopService.getShops()

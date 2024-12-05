@@ -1,6 +1,9 @@
-<h1 class="text-[#4B2C20]">Boutiques</h1>
-<ul>
-  <li *ngFor="let shop of shops">
-    <p>{{ shop.name }}</p>
-  </li>
-</ul>
+<div class="m-12">
+    <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-4">Boutiques</h1>
+    <ul class="space-y-2" *ngIf="shops">
+    <li *ngFor="let shop of shops">
+        <p>{{ shop.name }}</p>
+        <p>{{ shop.location.address.street_number}}, {{ shop.location.address.street}}, {{ shop.location.address.city}}</p>
+    </li>
+    </ul>
+</div>
