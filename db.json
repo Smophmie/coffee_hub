@@ -73,16 +73,16 @@
       }
     },
     {
-      "id": "7bbf",
-      "name": "shop 1",
+      "name": "shop 1 modifié",
       "location": {
         "address": {
-          "street_number": 12,
-          "street": "rue",
-          "city": "Tou",
-          "zipcode": "32000"
+          "street_number": 112,
+          "street": "LE FANGHEAT",
+          "city": "EGLISE NEUVE PRES BILLOM",
+          "zipcode": "63160"
         }
-      }
+      },
+      "id": "7bbf"
     }
   ]
 }

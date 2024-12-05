@@ -24,9 +24,7 @@ export class AddshopformComponent {
   });
 
   onSubmit() {
-    console.log(this.creation_form.value);
     const formData = this.transformFormValues(this.creation_form.value);
-    console.log(formData);
     this.shopService.createShop(formData).subscribe({
       next: (response) => {
         console.log('Shop created successfully:', response);
