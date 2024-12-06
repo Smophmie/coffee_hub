@@ -44,19 +44,28 @@
           "zipcode": "63100"
         }
       }
-    },
+    }
+  ],
+  "coffees":[
     {
-      "id": "24fb",
-      "name": "Abc",
-      "slogan": "Slogan",
-      "location": {
-        "address": {
-          "street_number": 12,
-          "street": "rue",
-          "city": "Strasbourg",
-          "zipcode": "67000"
+      "id": "123e",
+      "name": "Café noisette",
+      "description": "description",
+      "ingredients": [
+        {
+          "name": "café",
+          "allergen" : false 
+        },
+        {
+          "name": "lait",
+          "allergen" : true 
+        },
+        {
+          "name": "sucre",
+          "allergen" : false 
         }
-      }
+      ],
+      "price": 3.00
     }
   ]
 }
