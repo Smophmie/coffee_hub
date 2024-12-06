@@ -1,0 +1,40 @@
+<div class="m-12" *ngIf="coffee">
+    <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-6">Modifier le {{coffee?.name}}</h1>
+
+    <form [formGroup]="update_form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-3">
+        <div class="space-x-2">
+            <label for="name">
+                Nom du café:
+            </label>
+            <input type="text" id="name" formControlName="name" value="{{coffee?.name}}" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+        
+        <div class="space-x-2">
+            <label for="description">
+                Description:
+            </label>
+            <input type="text" id="description" formControlName="description" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+
+        <div class="space-x-2">
+            <label for="price">
+                Prix:
+            </label>
+            <input type="number" id="price" formControlName="price" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/> €
+        </div>
+
+        <!-- <fieldset *ngIf="shops">
+            <legend>Les boutiques dans lesquelles ce café est commercialisé:</legend>
+          
+            <div *ngFor="let shop of shops">
+                <input type="checkbox" [id]="shop.id" [value]="shop.id" (change)="onShopChange($event)" [checked]="coffee?.shops_id.includes(shop.id)" />
+                <label [for]="shop.id">{{ shop.name }}</label>
+            </div>
+          </fieldset> -->
+        
+        <div>
+            <button type="submit" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base uppercase text-center p-3 rounded-lg w-60 transition-transform transform mt-6">Modifier</button>
+        </div>
+        
+    </form>
+</div>

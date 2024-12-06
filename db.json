@@ -46,26 +46,12 @@
       }
     }
   ],
-  "coffees":[
+  "coffees": [
     {
-      "id": "123e",
-      "name": "Café noisette",
+      "name": "Café noisette modifié",
       "description": "Un goût sucré et onctueux qui laisse une odeur de noisette dans votre vie.",
-      "ingredients": [
-        {
-          "name": "café",
-          "allergen" : false 
-        },
-        {
-          "name": "lait",
-          "allergen" : true 
-        },
-        {
-          "name": "sucre",
-          "allergen" : false 
-        }
-      ],
-      "price": 3.00
+      "price": 12,
+      "id": "123e"
     }
   ]
 }
