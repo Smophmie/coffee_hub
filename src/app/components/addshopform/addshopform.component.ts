@@ -36,7 +36,7 @@ export class AddshopformComponent {
       error: (error) => {
         console.error('Error creating shop:', error);
       }
-    });;
+    });
   }
 
   private transformFormValues(formData: any): any {
