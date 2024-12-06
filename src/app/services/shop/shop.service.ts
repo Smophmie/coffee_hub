@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environment/environment';
 import { Observable } from 'rxjs';
 import { Shop } from '../../models/shop';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ export class ShopService {
    }
 
   apiUrl: string = environment.apiUrl+"shops";
+  filteredShops = [];
 
-  getShops(){
-    return this.httpClient.get(this.apiUrl)
+  getShops(): Observable<Shop[]>{
+    return this.httpClient.get<Shop[]>(this.apiUrl);
   }
 
   getShop(id : string){
@@ -33,5 +35,11 @@ export class ShopService {
 
   deleteShop(id : string){
     return this.httpClient.delete(this.apiUrl+"/"+id);
+  }
+
+  getShopsByCity(city: string): Observable<Shop[]> {
+    return this.getShops().pipe(
+      map(shops => shops.filter(shop => shop.location.address.city.toLowerCase() === city.toLowerCase()))
+    );
   }
 }

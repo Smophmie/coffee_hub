@@ -4,6 +4,14 @@
         <a [routerLink]="['/addshop']" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-3 rounded-lg active:scale-95 transition-transform transform">Créer une boutique</a>
     </div>
 
+    <div class="filter" *ngIf="cities">
+        <label for="city-select">Filtrer par ville:</label>
+
+        <select name="city" id="city-select" *ngFor="let city of cities">
+            <option value="{{city}}">{{city}}</option>
+        </select>
+    </div>
+
     <ul class="space-y-6" *ngIf="shops">
     <li *ngFor="let shop of shops">
         <p>{{ shop.name }}</p>

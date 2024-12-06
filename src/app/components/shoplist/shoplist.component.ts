@@ -18,17 +18,28 @@ export class ShoplistComponent implements OnInit {
   ){};
 
   shops?: Shop[];
+  city: string = 'Biarritz';
 
   ngOnInit(){
     this.loadShops();
   }
 
   loadShops(){
-    this.shopService.getShops()
-    .subscribe((res:any)=>{
-        this.shops = res;
-        console.log(this.shops);
-    });
+    console.log(this.city);
+    if (this.city) {
+      console.log("condition ok");
+      this.shopService.getShopsByCity(this.city)
+        .subscribe((res: Shop[]) => {
+          this.shops = res;
+          console.log(this.shops);
+        });
+    } else {
+      this.shopService.getShops()
+        .subscribe((res: any) => {
+          this.shops = res;
+          console.log(this.shops);
+        });
+    }
   }
 
   onDelete(id:string){
