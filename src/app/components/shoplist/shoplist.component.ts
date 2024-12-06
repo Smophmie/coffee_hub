@@ -18,7 +18,7 @@ export class ShoplistComponent implements OnInit {
   ){};
 
   shops?: Shop[];
-  city: string = 'Biarritz';
+  city: string = '';
 
   ngOnInit(){
     this.loadShops();
@@ -40,6 +40,11 @@ export class ShoplistComponent implements OnInit {
           console.log(this.shops);
         });
     }
+  }
+
+  onSearchCity(city: string) {
+    this.city = city;
+    this.loadShops();
   }
 
   onDelete(id:string){

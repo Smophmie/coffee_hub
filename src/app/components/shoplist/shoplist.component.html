@@ -1,16 +1,18 @@
 <div class="m-12">
-    <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-4">Boutiques</h1>
-    <div class="pt-4 mb-10">
-        <a [routerLink]="['/addshop']" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-3 rounded-lg active:scale-95 transition-transform transform">Créer une boutique</a>
+    <div class="flex justify-between w-3/4">
+        <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-4">Boutiques</h1>
+        <div class="pt-4 mb-10">
+            <a [routerLink]="['/addshop']" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-3 rounded-lg active:scale-95 transition-transform transform">Créer une boutique</a>
+        </div>
     </div>
 
-    <div class="filter" *ngIf="cities">
-        <label for="city-select">Filtrer par ville:</label>
-
-        <select name="city" id="city-select" *ngFor="let city of cities">
-            <option value="{{city}}">{{city}}</option>
-        </select>
-    </div>
+    <div class="filter mb-4 space-y-2">
+        <label for="city-search">Rechercher par ville:</label>
+        <div>
+            <input id="city-search" type="text" #cityInput (keydown.enter)="onSearchCity(cityInput.value)" class="border p-2 rounded">
+            <button (click)="onSearchCity(cityInput.value)" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base p-2 rounded-lg ml-2">Rechercher</button>
+        </div>
+      </div>
 
     <ul class="space-y-6" *ngIf="shops">
     <li *ngFor="let shop of shops">
