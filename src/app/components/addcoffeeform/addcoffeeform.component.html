@@ -22,6 +22,17 @@
             </label>
             <input type="number" id="price" formControlName="price" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/> €
         </div>
+
+        <div *ngIf="shops">
+            <fieldset>
+                <legend>Sélectionnez les boutiques qui proposent ce café:</legend>
+              
+                <div *ngFor="let shop of shops" class="space-x-2">
+                  <input type="checkbox" id="{{shop.id}}" name="shops_id" formControlName="shops_id"/>
+                  <label for="{{shop.id}}">{{shop.name}}</label>
+                </div>
+            </fieldset>
+        </div>
         
         <div>
             <button type="submit" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base uppercase text-center p-3 rounded-lg w-60 transition-transform transform mt-6">Créer</button>

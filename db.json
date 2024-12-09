@@ -58,6 +58,13 @@
       "name": "Café crême",
       "description": "Café et son nuage de lait",
       "price": 120000
+    },
+    {
+      "id": "c038",
+      "name": "café",
+      "description": "abc",
+      "price": 12,
+      "shops_id": false
     }
   ]
 }
