@@ -17,8 +17,8 @@ export class CoffeeService {
     return this.httpClient.get<Coffee[]>(this.apiUrl);
   }
 
-  getCoffee(id : string){
-    return this.httpClient.get(this.apiUrl+"/"+id);
+  getCoffee(id : string): Observable<Coffee> {
+    return this.httpClient.get<Coffee>(this.apiUrl+"/"+id);
   }
 
   createCoffee(coffee: Coffee){

@@ -23,14 +23,20 @@
             <input type="number" id="price" formControlName="price" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/> €
         </div>
 
-        <!-- <fieldset *ngIf="shops">
+        <fieldset *ngIf="shops">
             <legend>Les boutiques dans lesquelles ce café est commercialisé:</legend>
           
-            <div *ngFor="let shop of shops">
-                <input type="checkbox" [id]="shop.id" [value]="shop.id" (change)="onShopChange($event)" [checked]="coffee?.shops_id.includes(shop.id)" />
+            <div *ngFor="let shop of shops" class="space-x-2">
+                <input 
+                  type="checkbox" 
+                  [id]="shop.id" 
+                  [value]="shop.id" 
+                  (change)="onShopChange($event)"
+                  [checked]="coffee.shops_id.includes(shop.id)"
+                />
                 <label [for]="shop.id">{{ shop.name }}</label>
-            </div>
-          </fieldset> -->
+              </div>
+          </fieldset>
         
         <div>
             <button type="submit" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base uppercase text-center p-3 rounded-lg w-60 transition-transform transform mt-6">Modifier</button>

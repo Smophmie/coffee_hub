@@ -77,14 +77,13 @@
       ]
     },
     {
-      "id": "7118",
       "name": "Caf",
       "description": "desc",
       "price": 13,
       "shops_id": [
-        "3b70",
         "e488"
-      ]
+      ],
+      "id": "7118"
     }
   ]
 }

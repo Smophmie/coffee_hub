@@ -53,7 +53,6 @@ export class AddcoffeeformComponent implements OnInit {
       const index = shops_id.controls.findIndex(x => x.value === event.target.value);
       shops_id.removeAt(index);
     }
-    
   }
 
   onSubmit() {

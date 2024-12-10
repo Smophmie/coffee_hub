@@ -7,7 +7,7 @@ export class Coffee {
     //     allergen : boolean
     // }];
     price: number;
-    // shops_id: [];
+    shops_id: string [];
     
     constructor(
       id: string, 
@@ -18,13 +18,13 @@ export class Coffee {
       //   allergen : boolean
       // }], 
       price: number, 
-      // shops_id:[]
+      shops_id: string []
     ) {
       this.id = id;
       this.name = name;
       this.description = description;
       // this.ingredients = ingredients;
       this.price = price;
-      // this.shops_id = shops_id;
+      this.shops_id = shops_id
     }
   }
