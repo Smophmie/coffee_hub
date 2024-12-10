@@ -28,8 +28,8 @@
                 <legend>Sélectionnez les boutiques qui proposent ce café:</legend>
               
                 <div *ngFor="let shop of shops" class="space-x-2">
-                  <input type="checkbox" id="{{shop.id}}" name="shops_id" formControlName="shops_id"/>
-                  <label for="{{shop.id}}">{{shop.name}}</label>
+                    <input type="checkbox" id="{{shop.id}}" [value]="shop.id" (change)="onCheckboxChange($event)"/>
+                    <label for="{{shop.id}}">{{shop.name}}</label>
                 </div>
             </fieldset>
         </div>

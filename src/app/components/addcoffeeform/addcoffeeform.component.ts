@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { CoffeeService } from '../../services/coffee/coffee.service';
 import { Router } from '@angular/router';
 import { Shop } from '../../models/shop';
@@ -28,7 +28,7 @@ export class AddcoffeeformComponent implements OnInit {
     name: new FormControl<string>(''),
     description: new FormControl<string>(''),
     price: new FormControl<number|null>(null),
-    shops_id: new FormControl([])
+    shops_id: new FormArray([])
   });
 
   ngOnInit(){
@@ -42,6 +42,18 @@ export class AddcoffeeformComponent implements OnInit {
         console.log(error);
       }
     });
+  }
+
+  onCheckboxChange(event: any) {
+    const shops_id: FormArray = this.creation_form.get('shops_id') as FormArray;
+
+    if (event.target.checked) {
+      shops_id.push(new FormControl(event.target.value));
+    } else {
+      const index = shops_id.controls.findIndex(x => x.value === event.target.value);
+      shops_id.removeAt(index);
+    }
+    
   }
 
   onSubmit() {
