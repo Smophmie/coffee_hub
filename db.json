@@ -60,30 +60,90 @@
       "price": 120000
     },
     {
-      "id": "c038",
-      "name": "café",
-      "description": "abc",
-      "price": 12,
-      "shops_id": false
-    },
-    {
-      "id": "60d2",
-      "name": "Café abc",
-      "description": "Description abc",
+      "id": "3393",
+      "name": "Café frappé de Kévin",
+      "description": "Café rafraichissant venu tout droit de Crête",
       "price": 12,
       "shops_id": [
-        "e488",
         "0186"
+      ],
+      "ingredients": [
+        {
+          "name": "Café",
+          "allergen": false
+        },
+        {
+          "name": "Sucre",
+          "allergen": false
+        },
+        {
+          "name": "Glaçons",
+          "allergen": true
+        },
+        {
+          "name": "",
+          "allergen": false
+        }
       ]
     },
     {
-      "name": "Caf",
+      "id": "6abe",
+      "name": "Café de Sophie",
+      "description": "abc",
+      "price": 1.5,
+      "shops_id": [
+        "0186"
+      ],
+      "ingredients": [
+        {
+          "name": "Café",
+          "allergen": true
+        }
+      ]
+    },
+    {
+      "id": "cf96",
+      "name": "Caf So",
       "description": "desc",
+      "price": 12,
+      "shops_id": [
+        "e488",
+        "3b70",
+        "0186"
+      ],
+      "ingredients": [
+        {
+          "name": "Ingr 1",
+          "allergen": false
+        },
+        {
+          "name": "Ingr 2",
+          "allergen": false
+        },
+        {
+          "name": "",
+          "allergen": false
+        }
+      ]
+    },
+    {
+      "id": "f962",
+      "name": "Café zo",
+      "description": "description zo",
       "price": 13,
       "shops_id": [
-        "e488"
+        "0186"
       ],
-      "id": "7118"
+      "ingredients": [
+        {
+          "name": "Ingrédient 1",
+          "allergen": true
+        },
+        {
+          "name": "Ingrédient 2",
+          "allergen": false
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormArray, FormBuilder } from '@angular/forms';
 import { CoffeeService } from '../../services/coffee/coffee.service';
 import { Router } from '@angular/router';
 import { Shop } from '../../models/shop';
@@ -20,18 +20,22 @@ export class AddcoffeeformComponent implements OnInit {
     private coffeeService: CoffeeService,
     private shopService: ShopService,
     private router: Router,
+    private fb : FormBuilder
   ){};
 
   shops: Shop[] = [];
-
-  creation_form: FormGroup = new FormGroup({
-    name: new FormControl<string>(''),
-    description: new FormControl<string>(''),
-    price: new FormControl<number|null>(null),
-    shops_id: new FormArray([])
-  });
+  creation_form!: FormGroup;
 
   ngOnInit(){
+
+    this.creation_form = this.fb.group({
+      name: [''],
+      description: [''],
+      price: [null],
+      shops_id: this.fb.array([]),
+      ingredients: this.fb.array([this.createIngredient()]),
+    });
+    
     // Charger toutes les boutiques pour créer les checkboxes
     this.shopService.getShops().subscribe({
       next: (data: Shop[]) => {
@@ -42,6 +46,25 @@ export class AddcoffeeformComponent implements OnInit {
         console.log(error);
       }
     });
+  }
+
+  get ingredients(): FormArray {
+    return this.creation_form.get('ingredients') as FormArray;
+  }
+
+  createIngredient(): FormGroup {
+    return this.fb.group({
+      name: ['', Validators.required],
+      allergen: [false, Validators.required],
+    });
+  }
+  
+  addIngredient(): void {
+    this.ingredients.push(this.createIngredient());
+  }
+
+  removeIngredient(index: number): void {
+    this.ingredients.removeAt(index);
   }
 
   onCheckboxChange(event: any) {
