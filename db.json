@@ -46,11 +46,19 @@
       }
     }
   ],
+<<<<<<< Updated upstream
   "coffees":[
+=======
+  "coffees": [
+>>>>>>> Stashed changes
     {
-      "id": "123e",
-      "name": "Café noisette",
-      "description": "Un goût sucré et onctueux qui laisse une odeur de noisette dans votre vie.",
+      "id": "3393",
+      "name": "Café frappé de Kévin",
+      "description": "Café rafraichissant venu tout droit de Crête",
+      "price": 12,
+      "shops_id": [
+        "0186"
+      ],
       "ingredients": [
         {
           "name": "café",
@@ -61,11 +69,36 @@
           "allergen" : true 
         },
         {
-          "name": "sucre",
-          "allergen" : false 
+          "name": "Glaçons",
+          "allergen": true
         }
+      ]
+    },
+    {
+      "id": "bf90",
+      "name": "Expresso",
+      "description": "Café intense",
+      "price": 1.8,
+      "shops_id": [
+        "e488",
+        "3b70",
+        "0186"
       ],
-      "price": 3.00
+      "ingredients": [
+        {
+          "name": "Café",
+          "allergen": false
+        }
+      ]
+    },
+    {
+      "name": "Café du Brésil",
+      "description": "blabla",
+      "price": 2,
+      "shops_id": [
+        "3b70"
+      ],
+      "id": "a644"
     }
   ]
 }
