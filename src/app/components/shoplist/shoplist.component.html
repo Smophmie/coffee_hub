@@ -1,0 +1,28 @@
+<div class="m-12">
+    <div class="flex justify-between w-3/4">
+        <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-4">Boutiques</h1>
+        <div class="pt-4 mb-10">
+            <a [routerLink]="['/addshop']" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-3 rounded-lg active:scale-95 transition-transform transform">Créer une boutique</a>
+        </div>
+    </div>
+
+    <div class="filter mb-4 space-y-2">
+        <label for="city-search">Rechercher par ville:</label>
+        <div>
+            <input id="city-search" type="text" #cityInput (keydown.enter)="onSearchCity(cityInput.value)" class="border p-2 rounded">
+            <button (click)="onSearchCity(cityInput.value)" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base p-2 rounded-lg ml-2">Rechercher</button>
+        </div>
+      </div>
+
+    <ul class="space-y-6" *ngIf="shops">
+    <li *ngFor="let shop of shops">
+        <p>{{ shop.name }}</p>
+        <p class="text-[#4b2c20] text-xs">{{ shop?.slogan }}</p>
+        <p>{{ shop.location.address.street_number}}, {{ shop.location.address.street}}, {{ shop.location.address.city}}</p>
+        <div class="mt-3 space-x-4 flex">
+            <a [routerLink]="['/shop', shop?.id]" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-2 rounded-lg w-40 transition-transform transform">Modifier</a>
+            <button type="button" (click)="onDelete(shop.id)" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base text-center p-2 rounded-lg w-40 transition-transform transform">Supprimer</button>
+        </div>
+    </li>
+    </ul>
+</div>

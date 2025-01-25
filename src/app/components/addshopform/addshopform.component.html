@@ -1,0 +1,52 @@
+<div class="m-12">
+    <h1 class="text-[#4B2C20] text-3xl bold font-serif mb-6">Créer une boutique</h1>
+
+    <form [formGroup]="creation_form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-3">
+        <div class="space-x-2">
+            <label for="name">
+                Nom de la boutique:
+            </label>
+            <input type="text" id="name" formControlName="name" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+
+        <div class="space-x-2">
+            <label for="slogan">
+                Slogan:
+            </label>
+            <input type="text" id="slogan" formControlName="slogan" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+        
+        <div class="space-x-2">
+            <label for="street_number">
+                Numéro de rue:
+            </label>
+            <input type="number" id="street_number" formControlName="street_number" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+
+        <div class="space-x-2">
+            <label for="street">
+                Nom de rue:
+            </label>
+            <input type="text" id="street" formControlName="street" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+
+        <div class="space-x-2">
+            <label for="zipcode">
+                Code postal:
+            </label>
+            <input type="text" id="zipcode" formControlName="zipcode" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+
+        <div class="space-x-2">
+            <label for="city">
+                Ville:
+            </label>
+            <input type="text" id="city" formControlName="city" class="border rounded-lg w-80 border-[#d1b28a] h-10 pl-3"/>
+        </div>
+        
+        <div>
+            <button type="submit" class="bg-[#d1b28a] text-[#ffffff] font-serif text-base uppercase text-center p-3 rounded-lg w-60 transition-transform transform mt-6">Créer</button>
+        </div>
+        
+    </form>
+</div>
