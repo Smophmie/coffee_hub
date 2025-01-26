@@ -46,7 +46,11 @@
       }
     }
   ],
+<<<<<<< Updated upstream
+  "coffees":[
+=======
   "coffees": [
+>>>>>>> Stashed changes
     {
       "id": "3393",
       "name": "Café frappé de Kévin",
