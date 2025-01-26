@@ -8,6 +8,7 @@ export class Coffee {
     }];
     price: number;
     shops_id: string [];
+    shop_names?: string[]
     
     constructor(
       id: string, 
@@ -18,13 +19,15 @@ export class Coffee {
         allergen : boolean
       }], 
       price: number, 
-      shops_id: string []
+      shops_id: string [],
+      shop_names?: string[]
     ) {
       this.id = id;
       this.name = name;
       this.description = description;
       this.ingredients = ingredients;
       this.price = price;
-      this.shops_id = shops_id
+      this.shops_id = shops_id;
+      this.shop_names = shop_names
     }
   }
