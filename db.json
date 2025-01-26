@@ -48,7 +48,6 @@
   ],
   "coffees": [
     {
-      "id": "3393",
       "name": "Café frappé de Kévin",
       "description": "Café rafraichissant venu tout droit de Crête",
       "price": 12,
@@ -65,10 +64,11 @@
           "allergen": false
         },
         {
-          "name": "Glaçons",
-          "allergen": true
+          "name": "Sucre 2",
+          "allergen": false
         }
-      ]
+      ],
+      "id": "3393"
     },
     {
       "id": "6abe",
@@ -86,7 +86,6 @@
       ]
     },
     {
-      "id": "cf96",
       "name": "Caf So",
       "description": "desc",
       "price": 12,
@@ -99,12 +98,9 @@
         {
           "name": "Ingr 1",
           "allergen": false
-        },
-        {
-          "name": "Ingr 2",
-          "allergen": false
         }
-      ]
+      ],
+      "id": "cf96"
     },
     {
       "id": "f962",

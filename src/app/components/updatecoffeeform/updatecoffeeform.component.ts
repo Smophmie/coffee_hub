@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { Coffee } from '../../models/coffee';
 import { Shop } from '../../models/shop';
@@ -20,21 +20,24 @@ export class UpdatecoffeeformComponent implements OnInit {
     private coffeeService: CoffeeService,
     private shopService: ShopService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private fb : FormBuilder
   ) {};
 
   id: string = "";
   coffee: Coffee | null = null;
   shops: Shop[] = [];
-
-  update_form: FormGroup = new FormGroup({
-    name: new FormControl<string>(''),
-    description: new FormControl<string>(''),
-    price: new FormControl<number|null>(null),
-    shops_id: new FormArray([])
-  });
+  update_form!: FormGroup;
 
   ngOnInit() {
+    this.update_form = this.fb.group({
+      name: [''],
+      description: [''],
+      price: [null],
+      shops_id: this.fb.array([]),
+      ingredients: this.fb.array([]),
+    });
+
     // Charger toutes les boutiques pour créer les checkboxes
     this.shopService.getShops().subscribe({
       next: (data: Shop[]) => {
@@ -61,6 +64,7 @@ export class UpdatecoffeeformComponent implements OnInit {
           price: this.coffee?.price,
         });
         this.setSelectedShops(this.coffee.shops_id);
+        this.setIngredients(this.coffee.ingredients);
       },
       error: (error) => {
         console.log(error);
@@ -68,11 +72,46 @@ export class UpdatecoffeeformComponent implements OnInit {
     });    
   }
 
+  get ingredients(): FormArray {
+    console.log(this.update_form.get('ingredients'));
+    return this.update_form.get('ingredients') as FormArray;
+  }
+
   setSelectedShops(shopIds: string[]) {
     const shops_id: FormArray = this.update_form.get('shops_id') as FormArray;
     shopIds.forEach(id => {
       shops_id.push(new FormControl(id));
     });
+  }
+
+  createIngredient(name = '', allergen = false): FormGroup {
+    return this.fb.group({
+      name: [name, Validators.required],
+      allergen: [allergen, Validators.required],
+    });
+  }
+  
+  setIngredients(ingredients: { name: string; allergen: boolean }[]) {
+    const ingredientsArray: FormArray = this.update_form.get('ingredients') as FormArray;
+    
+    // Réinitialiser le FormArray
+    ingredientsArray.clear();
+  
+    // Ajouter les nouveaux ingrédients
+    ingredients.forEach(ingredient => {
+      ingredientsArray.push(this.createIngredient(ingredient.name, ingredient.allergen));
+    });
+    console.log(ingredients);
+    console.log(ingredientsArray);
+  }
+  
+  addIngredient() {
+    this.ingredients.push(this.createIngredient());
+  }
+  
+  // Supprimer un ingrédient
+  removeIngredient(index: number) {
+    this.ingredients.removeAt(index);
   }
 
   onShopChange(event: any) {
@@ -88,6 +127,7 @@ export class UpdatecoffeeformComponent implements OnInit {
 
   onSubmit() {
     const formData = this.update_form.value;
+    console.log(formData);
     this.coffeeService.updateCoffee(formData, this.id).subscribe({
       next: (response) => {
         console.log('Coffee updated successfully:', response);
