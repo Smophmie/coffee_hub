@@ -44,6 +44,19 @@
           "zipcode": "63100"
         }
       }
+    },
+    {
+      "id": "763e",
+      "name": "Le seum",
+      "slogan": "Tu l'auras",
+      "location": {
+        "address": {
+          "street_number": 7300,
+          "street": "rue Claude Monnet",
+          "city": "Paris",
+          "zipcode": "97410"
+        }
+      }
     }
   ],
   "coffees": [
@@ -86,38 +99,41 @@
       ]
     },
     {
-      "name": "Caf So",
-      "description": "desc",
-      "price": 12,
+      "name": "Café de José",
+      "description": "jyfjf",
+      "price": 1.99,
       "shops_id": [
-        "e488",
         "3b70",
-        "0186"
+        "e488"
       ],
       "ingredients": [
         {
-          "name": "Ingr 1",
-          "allergen": false
-        }
-      ],
-      "id": "cf96"
-    },
-    {
-      "id": "f962",
-      "name": "Café zo",
-      "description": "description zo",
-      "price": 13,
-      "shops_id": [
-        "0186"
-      ],
-      "ingredients": [
-        {
-          "name": "Ingrédient 1",
+          "name": "Lait",
           "allergen": true
         },
         {
-          "name": "Ingrédient 2",
+          "name": "Café du Brésil",
           "allergen": false
+        }
+      ],
+      "id": "3e94"
+    },
+    {
+      "id": "e942",
+      "name": "Mauvais mood",
+      "description": "Tu l'auras aussi",
+      "price": -2,
+      "shops_id": [
+        "763e"
+      ],
+      "ingredients": [
+        {
+          "name": "Chocolat",
+          "allergen": false
+        },
+        {
+          "name": "Lait",
+          "allergen": true
         }
       ]
     }
